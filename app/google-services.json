@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "670189863406",
+    "firebase_url": "https://demoapp-b3e1b-default-rtdb.firebaseio.com",
+    "project_id": "demoapp-b3e1b",
+    "storage_bucket": "demoapp-b3e1b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670189863406:android:4e0ca18194762f67410eff",
+        "android_client_info": {
+          "package_name": "com.demoapp.demoappbox"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALOHDVlTkghp5G2h1bYbLasxupDkuTO4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
