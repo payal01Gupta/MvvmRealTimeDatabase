@@ -1,5 +1,6 @@
 package com.demoapp.demoappbox.ui.activity;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -8,7 +9,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.demoapp.demoappbox.R;
+import com.demoapp.demoappbox.ui.fragments.AnkitaFragment;
 import com.demoapp.demoappbox.ui.fragments.CreateUserFragment;
+import com.demoapp.demoappbox.ui.fragments.ManpreetFragment;
+import com.demoapp.demoappbox.ui.fragments.PayalFragment;
+import com.demoapp.demoappbox.ui.fragments.SultanFragment;
 import com.demoapp.demoappbox.ui.fragments.UserListFragment;
 import com.demoapp.demoappbox.viewModel.UserViewModelFirebase;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -32,7 +37,9 @@ public class CreateUserActivity extends AppCompatActivity {
 
         viewModel = new ViewModelProvider(this).get(UserViewModelFirebase.class);
 
-        observeFirebasePersons();
+  //      observeFirebasePersons();
+
+        loadFragment(new PayalFragment());
 
         fab.setOnClickListener(v -> openListFragment());
 
@@ -58,6 +65,39 @@ public class CreateUserActivity extends AppCompatActivity {
 //            etSubject.setText(getIntent().getStringExtra("subject"));
 //            btnSave.setText("Update");
 //        }
+
+        bottomNavigation.setOnItemSelectedListener(item -> {
+
+            Fragment selectedFragment = null;
+
+            switch (item.getItemId()) {
+                case R.id.tab_payal:
+                    selectedFragment = new PayalFragment();
+                    break;
+
+                case R.id.tab_ankita:
+                    selectedFragment = new AnkitaFragment();
+                    break;
+
+                case R.id.tab_sultan:
+                    selectedFragment = new SultanFragment();
+                    break;
+
+                case R.id.tab_manpreet:
+                    selectedFragment = new ManpreetFragment();
+                    break;
+            }
+
+            loadFragment(selectedFragment);
+            return true;
+        });
+    }
+
+    private void loadFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .commit();
     }
 
     private void observeFirebasePersons() {

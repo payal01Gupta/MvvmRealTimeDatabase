@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/tab_payal"
+        android:title="Payal"/>
+
+    <item
+        android:id="@+id/tab_ankita"
+        android:title="Ankita"/>
+
+    <item
+        android:id="@+id/tab_sultan"
+        android:title="Sultan"/>
+
+    <item
+        android:id="@+id/tab_manpreet"
+        android:title="Manpreet"/>
+
+</menu>

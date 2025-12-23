@@ -53,7 +53,6 @@ public class UserRepository {
                 .setValue(user);
     }
 
-    // 3️⃣ Get users of selected person (Realtime)
     public LiveData<List<User>> getUsers(String person) {
 
         MutableLiveData<List<User>> liveData = new MutableLiveData<>();
