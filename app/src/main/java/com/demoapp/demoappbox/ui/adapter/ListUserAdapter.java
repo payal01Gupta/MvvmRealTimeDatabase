@@ -24,6 +24,11 @@ public class ListUserAdapter extends RecyclerView.Adapter<ListUserAdapter.ViewHo
         this.list = list;
         this.longClickListener = longClickListener;
     }
+
+    public ListUserAdapter(List<User> list) {
+        this.list = list;
+    }
+
     @NonNull
     @Override
     public ListUserAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

@@ -38,7 +38,8 @@ public class CreateUserFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_create_user,
                 container, false);
 
-        person = getArguments().getString("person");
+       // person = getArguments().getString("person");
+        person = "payal";
 
         etName = view.findViewById(R.id.etName);
         etRoll = view.findViewById(R.id.etRoll);

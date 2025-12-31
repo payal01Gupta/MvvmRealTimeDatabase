@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.googleServices)
 }
+
+
 
 android {
     namespace 'com.demoapp.demoappbox'

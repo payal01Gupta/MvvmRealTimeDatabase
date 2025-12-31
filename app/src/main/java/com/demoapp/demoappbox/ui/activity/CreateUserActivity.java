@@ -1,11 +1,12 @@
 package com.demoapp.demoappbox.ui.activity;
 
-import android.app.Fragment;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.demoapp.demoappbox.R;
@@ -66,31 +67,65 @@ public class CreateUserActivity extends AppCompatActivity {
 //            btnSave.setText("Update");
 //        }
 
+//        bottomNavigation.setOnItemSelectedListener(item -> {
+//
+//            Fragment selectedFragment;
+//
+//            switch (item.getItemId()) {
+//
+//                case R.id.tab_payal:
+//                    selectedFragment = new PayalFragment();
+//                    break;
+//
+//                case R.id.tab_ankita:
+//                    selectedFragment = new AnkitaFragment();
+//                    break;
+//
+//                case R.id.tab_sultan:
+//                    selectedFragment = new SultanFragment();
+//                    break;
+//
+//                case R.id.tab_manpreet:
+//                    selectedFragment = new ManpreetFragment();
+//                    break;
+//
+//                default:
+//                    return false;   // 🔥 important
+//            }
+//
+//            loadFragment(selectedFragment);
+//            return true;
+//        });
+
+
+
+
         bottomNavigation.setOnItemSelectedListener(item -> {
 
-            Fragment selectedFragment = null;
+            Fragment selectedFragment;
 
-            switch (item.getItemId()) {
-                case R.id.tab_payal:
-                    selectedFragment = new PayalFragment();
-                    break;
+            int id = item.getItemId();
 
-                case R.id.tab_ankita:
-                    selectedFragment = new AnkitaFragment();
-                    break;
+            if (id == R.id.tab_payal) {
+                selectedFragment = new PayalFragment();
 
-                case R.id.tab_sultan:
-                    selectedFragment = new SultanFragment();
-                    break;
+            } else if (id == R.id.tab_ankita) {
+                selectedFragment = new AnkitaFragment();
 
-                case R.id.tab_manpreet:
-                    selectedFragment = new ManpreetFragment();
-                    break;
+            } else if (id == R.id.tab_sultan) {
+                selectedFragment = new SultanFragment();
+
+            } else if (id == R.id.tab_manpreet) {
+                selectedFragment = new ManpreetFragment();
+
+            } else {
+                return false;
             }
 
             loadFragment(selectedFragment);
             return true;
         });
+
     }
 
     private void loadFragment(Fragment fragment) {
