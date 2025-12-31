@@ -28,6 +28,7 @@ public class CreateUserActivity extends AppCompatActivity {
     UserViewModelFirebase viewModel;
 
     String currentPerson = "";
+    String loginUser="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,14 +37,22 @@ public class CreateUserActivity extends AppCompatActivity {
         bottomNavigation = findViewById(R.id.bottomNavigation);
         fab = findViewById(R.id.fabList);
 
+         loginUser =getIntent().getStringExtra("loginUser");
+
         viewModel = new ViewModelProvider(this).get(UserViewModelFirebase.class);
 
   //      observeFirebasePersons();
 
-        loadFragment(new PayalFragment());
+        Fragment selectFragment= null;
+        if(loginUser.equalsIgnoreCase("payal")){
+            selectFragment= new PayalFragment();
+        }else if(loginUser.equalsIgnoreCase("Sultan")){
+            selectFragment= new SultanFragment();
+        }
+
+        loadFragment(selectFragment);
 
         fab.setOnClickListener(v -> openListFragment());
-
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
 

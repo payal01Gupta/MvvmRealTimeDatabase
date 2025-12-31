@@ -56,7 +56,9 @@ public class AddUserActivtiy extends AppCompatActivity {
             etRoll.setText("");
             etSubject.setText("");
 
-            startActivity(new Intent(this,CreateUserActivity.class));
+            Intent intent= new Intent(this,CreateUserActivity.class);
+            intent.putExtra("loginUser",person);
+            startActivity(intent);
         });
 
     }
